@@ -1,15 +1,5 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-} from "@angular/core";
-import {
-  ActivatedRoute,
-  Router,
-  RoutesRecognized,
-  Route
-} from "@angular/router";
-
+import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from "@angular/core";
+import {ActivatedRoute, Router, RoutesRecognized, Route} from "@angular/router";
 
 @Component({
   selector: "my-app",
@@ -29,7 +19,6 @@ export class AppComponent {
   ) {
     router.events.subscribe(val => {
       if (val instanceof RoutesRecognized) {
-        debugger;
         this.checkAndAddRouteTab(val);
       }
     });
