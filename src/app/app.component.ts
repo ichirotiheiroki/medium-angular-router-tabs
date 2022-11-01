@@ -1,5 +1,6 @@
 import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from "@angular/core";
 import {ActivatedRoute, Router, RoutesRecognized, Route} from "@angular/router";
+import {TabInterface} from "./tab.interface";
 
 @Component({
   selector: "my-app",
@@ -8,7 +9,7 @@ import {ActivatedRoute, Router, RoutesRecognized, Route} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  public tabs: Tab[] = [];
+  public tabs: TabInterface[] = [];
   public routes: Route[] = [];
   public currentHoverTabKey: string;
 
@@ -28,7 +29,7 @@ export class AppComponent {
     this.routes = this.router.config;
   }
 
-  disposeTab(tab: Tab) {
+  disposeTab(tab: TabInterface) {
     if (this.tabs.length > 1) {
       this.tabs = this.tabs.filter(item => item.key !== tab.key);
 
@@ -39,7 +40,7 @@ export class AppComponent {
     }
   }
 
-  mouseOverTab(tab: Tab) {
+  mouseOverTab(tab: TabInterface) {
     this.currentHoverTabKey = tab ? tab.key : null;
   }
 
@@ -79,10 +80,4 @@ export class AppComponent {
 
 // export type TabInjector = { tabKey: string; injector: Injector };
 
-export interface Tab {
-  name: string;
-  component: any;
-  active: boolean;
-  route: Route;
-  key: string;
-}
+
