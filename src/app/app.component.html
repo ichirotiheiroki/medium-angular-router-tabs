@@ -13,8 +13,8 @@ true}" [routerLink]="route.path">{{route.component.name }}</a>
     <!-- панель вкладок -->
 		<ul class="nav nav-tabs bg-light mt-3">
 			<li class="nav-item" *ngFor="let tab of tabs; let first = first;" 
-      (mouseleave)="mouseOverTab(null)" 
-      (mouseenter)="mouseOverTab(tab)">
+      (mouseleave)="hoverTab(null)" 
+      (mouseenter)="hoverTab(tab)">
 				<div class="nav-link" [class.active]="tab.active">
 					<div class="d-flex flex-row cursor-pointer" >
             <span class="badge badge-danger my-auto mr-2" *ngIf="(tab.count | async) > 0">{{ tab.count | async}}</span>
