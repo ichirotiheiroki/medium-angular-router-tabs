@@ -20,7 +20,7 @@ export class AppComponent {
   ) {
     router.events.subscribe(val => {
       if (val instanceof RoutesRecognized) {
-        this.checkAndAddRouteTab(val);
+        this.adTab(val);
       }
     });
   }
@@ -29,7 +29,7 @@ export class AppComponent {
     this.routes = this.router.config;
   }
 
-  disposeTab(tab: TabInterface) {
+  closeTab(tab: TabInterface) {
     if (this.tabs.length > 1) {
       this.tabs = this.tabs.filter(item => item.key !== tab.key);
 
@@ -40,11 +40,11 @@ export class AppComponent {
     }
   }
 
-  mouseOverTab(tab: TabInterface) {
+  hoverTab(tab: TabInterface) {
     this.currentHoverTabKey = tab ? tab.key : null;
   }
 
-  checkAndAddRouteTab(val: RoutesRecognized) {
+  adTab(val: RoutesRecognized) {
     const comp = val.state.root.firstChild.component;
 
     this.deactivateTabs();

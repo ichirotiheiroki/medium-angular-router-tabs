@@ -24,7 +24,7 @@ true}" [routerLink]="route.path">{{route.component.name }}</a>
             [class.pl-3]="currentHoverTabKey == tab.key" 
             [class.opacity-0]="currentHoverTabKey != tab.key"
             [class.invisible]="currentHoverTabKey != tab.key" 
-            *ngIf="tabs.length > 1" (click)="disposeTab(tab)">X</div>
+            *ngIf="tabs.length > 1" (click)="closeTab(tab)">X</div>
 					</div>
 				</div>
 			</li>
